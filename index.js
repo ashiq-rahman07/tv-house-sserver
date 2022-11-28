@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const port = process.env.PORT || 5000;
@@ -43,6 +43,21 @@ async function run() {
         const categoriesCollection = client.db('tv_house').collection('categories');
         const productsCollection = client.db('tv_house').collection('products');
         const usersCollection = client.db('tv_house').collection('users');
+        const bookingsCollection = client.db('tv_house').collection('bookings');
+        const paymentsCollection = client.db('doctorsPortal').collection('payments');
+
+
+
+        const verifyAdmin = async (req, res, next) => {
+            const decodedEmail = req.decoded.email;
+            const query = { email: decodedEmail };
+            const user = await usersCollection.findOne(query);
+
+            if (user?.role !== 'admin') {
+                return res.status(403).send({ message: 'forbidden access' })
+            }
+            next();
+        }
 
         app.get('/categories', async (req, res) => {
             const query = {};
@@ -55,7 +70,7 @@ async function run() {
             const products = await productsCollection.find(query).toArray();
             res.send(products);
         });
-      
+
 
         app.get('/products/:category_name', async (req, res) => {
             const category_name = req.params.category_name;
@@ -71,7 +86,7 @@ async function run() {
             const product = await productsCollection.find(query).toArray();
             res.send(product);
         });
-        
+
         app.get('/jwt', async (req, res) => {
             const email = req.query.email;
             const query = { email: email };
@@ -83,7 +98,27 @@ async function run() {
             res.status(403).send({ accessToken: '' })
         });
 
-        app.post('/products',async(req,res)=>{
+
+        app.post('/bookings', async (req, res) => {
+            const booking = req.body;
+
+            const result = await bookingsCollection.insertOne(booking);
+            res.send(result);
+        });
+
+        app.get('/bookings/:email', async (req, res) => {
+            const email = req.params.email;
+            const query =
+
+
+            const result = await bookingsCollection.insertOne(booking);
+            res.send(result);
+        });
+
+
+
+
+        app.post('/products', async (req, res) => {
             const product = req.body;
             const result = await productsCollection.insertOne(product);
             res.send(result);
@@ -102,7 +137,7 @@ async function run() {
             res.send(users);
         });
 
-        app.get('/users/admin/:email', verifyJWT, async (req, res) => {
+        app.get('/users/admin/:email', async (req, res) => {
             const email = req.params.email;
             const query = { email }
             const user = await usersCollection.findOne(query);
@@ -116,14 +151,20 @@ async function run() {
             res.send({ isSeller: user?.role === 'Seller' });
         });
 
-        app.get('/users/seller/:email', async (req, res) => {
+        app.get('/users/buyer/:email', async (req, res) => {
             const email = req.params.email;
             const query = { email }
             const user = await usersCollection.findOne(query);
             res.send({ isBuyer: user?.role === 'Buyer' });
         });
 
-      
+        app.delete('/users/:id', verifyJWT, async (req, res) => {
+            const id = req.params.id;
+            const filter = { _id: ObjectId(id) };
+            const result = await usersCollection.deleteOne(filter);
+            res.send(result);
+        })
+
 
     }
 
