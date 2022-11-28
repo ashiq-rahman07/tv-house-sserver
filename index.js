@@ -101,9 +101,10 @@ async function run() {
         app.get('/bookings', async (req, res) => {
 
             const query = {}
-            const booking= await bookingsCollection.find(query).toArray();
+            const booking = await bookingsCollection.find(query).toArray();
             res.send(booking);
         });
+      
 
         app.get('/bookings/:email', async (req, res) => {
             const email = req.params.email;
@@ -114,6 +115,14 @@ async function run() {
             res.send(booking);
         });
 
+        app.get('/bookings/id/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = {_id: ObjectId(id)};
+            const booking = await bookingsCollection.findOne(query);
+            res.send(booking);
+            
+        })
+
         app.post('/bookings', async (req, res) => {
             const booking = req.body;
 
@@ -121,10 +130,10 @@ async function run() {
             res.send(result);
         });
 
-       
 
 
-       
+
+
 
 
 
