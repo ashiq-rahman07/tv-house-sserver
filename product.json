@@ -1,0 +1,72 @@
+[
+    {
+        "category_id": "shinger01",
+        "category_name": "Shinger Tv",
+        "product_name": "Shinger Frame less Hd Led Tv ",
+        "product_img": "https://i.ibb.co/r4Hz99T/fram1-sing.jpg",
+        "location": "Sylhet",
+        "resale_price" : "50",
+        "orginal_price": "100",
+        "years_use": "2",
+        "seller_name": "Masuk"
+
+    },
+    {
+        "category_id": "shinger01",
+        "category_name": "Shinger Tv",
+        "product_name": "Shinger 4k Smart android Tv ",
+        "product_img": "https://i.ibb.co/BsnxB4h/4k-sm-sing.jpg",
+        "location": "Sylhet",
+        "resale_price": "50",
+        "orginal_price": "100",
+        "years_use": "2",
+        "seller_name": "Masuk"
+    },
+    {
+        "category_id": "walton02",
+        "category_name": "Walton Tv",
+        "product_name": "Walton android Tv ",
+        "product_img": "https://i.ibb.co/nmjmSXY/walton-androd.jpg",
+        "location": "Sylhet",
+        "resale_price": "50",
+        "orginal_price": "100",
+        "years_use": "2",
+        "seller_name": "Masuk"
+    },
+    {
+        "category_id": "walton02",
+        "category_name": "Walton Tv",
+        "product_name": "Walton 4k Smart Tv ",
+        "product_img": "https://i.ibb.co/k1Nz2Hd/walton-4k.jpg",
+        "location": "Sylhet",
+        "resale_price": "50",
+        "orginal_price": "100",
+        "years_use": "2",
+        "seller_name": "Masuk"
+    },
+    {
+        "category_id": "samsung03",
+        "category_name": "Samsung Tv",
+        "product_name": "Samsung Led Tv ",
+        "product_img": "https://i.ibb.co/JCwsYqd/samsung.jpg",
+        "location": "Sylhet",
+        "resale_price": "50",
+        "orginal_price": "100",
+        "years_use": "2",
+        "seller_name": "Masuk"
+    },
+    {
+        "category_id": "samsung03",
+        "category_name": "Samsung Tv",
+        "product_name": "Samsung 4k smart. Tv ",
+        "product_img": "https://i.ibb.co/Pt3XH3v/samsung-4k-sm.jpg",
+        "location": "Sylhet",
+        "resale_price": "50",
+        "orginal_price": "100",
+        "years_use": "2",
+        "seller_name": "Masuk"
+    }
+
+   
+    
+]

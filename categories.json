@@ -1,0 +1,20 @@
+[
+    {
+        "category_id": "shinger01",
+        "category_name": "Shinger Tv",
+        "product_img": "https://i.ibb.co/r4Hz99T/fram1-sing.jpg"
+        
+    },
+    {
+        "category_id": "walton02",
+        "category_name": "Walton Tv",
+        "product_img": "https://i.ibb.co/nmjmSXY/walton-androd.jpg"
+        
+    },
+    {
+        "category_id": "samsung03",
+        "category_name": "Samsung Tv",
+        "product_img": "https://i.ibb.co/JCwsYqd/samsung.jpg"
+        
+    }
+]
