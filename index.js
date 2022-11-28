@@ -98,6 +98,21 @@ async function run() {
             res.status(403).send({ accessToken: '' })
         });
 
+        app.get('/bookings', async (req, res) => {
+
+            const query = {}
+            const booking= await bookingsCollection.find(query).toArray();
+            res.send(booking);
+        });
+
+        app.get('/bookings/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email }
+
+
+            const booking = await bookingsCollection.find(query).toArray();
+            res.send(booking);
+        });
 
         app.post('/bookings', async (req, res) => {
             const booking = req.body;
@@ -106,14 +121,10 @@ async function run() {
             res.send(result);
         });
 
-        app.get('/bookings/:email', async (req, res) => {
-            const email = req.params.email;
-            const query =
+       
 
 
-            const result = await bookingsCollection.insertOne(booking);
-            res.send(result);
-        });
+       
 
 
 
